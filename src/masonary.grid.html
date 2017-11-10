@@ -1,0 +1,64 @@
+<html>
+ <head>
+   <style>
+html, body {
+  padding: 0;
+  margin: 0;
+}
+#gallery {
+  --num-columns: 24;
+  --col-gap: 10px;
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-gap:   var(--col-gap);
+  -moz-column-gap:      var(--col-gap);
+  column-gap:           var(--col-gap);
+  -webkit-column-count: var(--num-columns);
+  -moz-column-count:    var(--num-columns);
+  column-count:         var(--num-columns);
+  background: #ACA47B;
+}
+
+#gallery img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+  margin-top: var(--col-gap);
+
+}
+
+   </style>
+ </head>
+ <body>
+   <section id="gallery">
+    <!-- <img src="images/cat-2.jpg" alt="Serious cat"> -->
+  </section>
+  <script type="module">
+    import { indexString } from '../data/index.images.js'
+
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    const galleryEl = document.querySelector('#gallery');
+    const images = indexString.split("\n");
+    const html = shuffle(images).map(imgPath => `<img src="../data/img/${imgPath.trim()}">`)
+    galleryEl.innerHTML = html.join('');
+  </script>
+ </body>
+</html>
