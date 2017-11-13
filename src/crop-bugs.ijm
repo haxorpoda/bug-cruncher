@@ -1,8 +1,9 @@
-inputPath = "/media/win/bug-cruncher/highRes/";
+inputPath = "E:\\git\\bug-cruncher\\data\\highRes\\" //--headless --console -macro E:\git\bug-cruncher\src\crop-bugs.ijm;
 // inputPath = "/home/select/Dev/bugs/data/highRes/";
 // inputPath = "/home/select/Dev/bugs/data/test/";
 
-setBatchMode(true);
+//setBatchMode(true);
+print(inputPath);
 list = getFileList(inputPath);
 for (i = 0; i < list.length; i++) {
 	cropFile(inputPath, list[i]);
@@ -14,6 +15,11 @@ function cropFile(path, fileName) {
 	print('open '+path + fileName);
 	open(path + fileName);
 	baseName=File.nameWithoutExtension;
+
+	File.makeDirectory( inputPath+"\\..\\res\\"+baseName);
+	File.makeDirectory( inputPath+"\\..\\res\\"+baseName+"\\bad");
+	File.makeDirectory( inputPath+"\\..\\res\\"+baseName+"\\crop");
+
 	imageId=getImageID();
 
 	run("Duplicate...", "title=particles");
@@ -31,13 +37,15 @@ function cropFile(path, fileName) {
 	print('Convert to Mask');
 	run("Convert to Mask");
 
-	print('Fill Holes');
-	run("Fill Holes");
+	//print('Fill Holes');
+	//run("Fill Holes");
 
 	print('Analyze Particles');
 	run("Analyze Particles...", "size=100000-10000000 exclude clear add");
 	// run("Analyze Particles...", "size=500-15000 exclude clear add");
-	saveAs("png", inputPath+"/../res/"+baseName+"/"+baseName+".map.png");
+
+	  run("Labels...", "color=white font=140 show draw"); 
+	saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\"+baseName+".map.png");
 
 	// File.makeDirectory(dirCropOutput);
 	// selectWindow(fileName);
@@ -50,9 +58,9 @@ function cropFile(path, fileName) {
 		getSelectionBounds(x, y, widthSel, heightSel);
 		ratio=widthSel/heightSel;
 		if (ratio > 0.14 && ratio < 6.5) {
-			saveAs("png", inputPath+"/../res/"+baseName+"/crop/"+fileName+'.'+u+".png");
+			saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\crop\\"+fileName+'.'+u+".png");
 		} else {
-			saveAs("png", inputPath+"/../res/"+baseName+"/bad/"+fileName+'.'+u+".png");
+			saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\bad\\"+fileName+'.'+u+".png");
 		}
 		// close();
 		//Next round!
