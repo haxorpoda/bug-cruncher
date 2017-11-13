@@ -1,4 +1,6 @@
-inputPath = "/home/select/Dev/bugs/data/raw/";
+inputPath = "/media/win/bug-cruncher/highRes/";
+// inputPath = "/home/select/Dev/bugs/data/highRes/";
+// inputPath = "/home/select/Dev/bugs/data/test/";
 
 setBatchMode(true);
 list = getFileList(inputPath);
@@ -6,22 +8,41 @@ for (i = 0; i < list.length; i++) {
 	cropFile(inputPath, list[i]);
 }
 
+
+
 function cropFile(path, fileName) {
+	print('open '+path + fileName);
 	open(path + fileName);
+	baseName=File.nameWithoutExtension;
+	imageId=getImageID();
+
 	run("Duplicate...", "title=particles");
+	imageIdParticles=getImageID();
 
-	run("Subtract Background...", "rolling=15 light");
+	print('Subtract Background');
+	run("Subtract Background...", "rolling=500 light");
+
+	print('8-bit');
 	run("8-bit");
-	setAutoThreshold("Default");
-	call("ij.plugin.frame.ThresholdAdjuster.setMode", "B&W");
-	setOption("BlackBackground", false);
-	run("Convert to Mask");
-	run("Fill Holes");
-	run("Analyze Particles...", "size=500-10000 display exclude clear add");
 
+	// setAutoThreshold("Default");
+	// call("ij.plugin.frame.ThresholdAdjuster.setMode", "B&W");
+	// setOption("BlackBackground", false);
+	print('Convert to Mask');
+	run("Convert to Mask");
+
+	print('Fill Holes');
+	run("Fill Holes");
+
+	print('Analyze Particles');
+	run("Analyze Particles...", "size=100000-10000000 exclude clear add");
+	// run("Analyze Particles...", "size=500-15000 exclude clear add");
+	saveAs("png", inputPath+"/../res/"+baseName+"/"+baseName+".map.png");
 
 	// File.makeDirectory(dirCropOutput);
-	selectWindow(fileName);
+	// selectWindow(fileName);
+	print('save '+roiManager("count")+' files');
+	selectImage(imageId);
 	for (u=0; u<roiManager("count"); ++u) {
 		run("Duplicate...", "title=crop");
 		roiManager("Select", u);
@@ -29,16 +50,16 @@ function cropFile(path, fileName) {
 		getSelectionBounds(x, y, widthSel, heightSel);
 		ratio=widthSel/heightSel;
 		if (ratio > 0.14 && ratio < 6.5) {
-			saveAs("png", "/home/select/Dev/bugs/data/crop/"+fileName+'.'+u+".png");
+			saveAs("png", inputPath+"/../res/"+baseName+"/crop/"+fileName+'.'+u+".png");
 		} else {
-			saveAs("png", "/home/select/Dev/bugs/data/bad/"+fileName+'.'+u+".png");
+			saveAs("png", inputPath+"/../res/"+baseName+"/bad/"+fileName+'.'+u+".png");
 		}
-		close();
+		// close();
 		//Next round!
-		selectWindow(fileName);
+		// selectWindow(fileName);
+		selectImage(imageId);
 	}
-	//selectWindow("particles");
+	selectImage(imageIdParticles);
+	// selectWindow("particles");
 	close();
 }
-
-
