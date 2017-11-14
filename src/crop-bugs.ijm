@@ -6,19 +6,23 @@ inputPath = "E:\\git\\bug-cruncher\\data\\highRes\\" //--headless --console -mac
 print(inputPath);
 list = getFileList(inputPath);
 for (i = 0; i < list.length; i++) {
-	cropFile(inputPath, list[i]);
+	if (File.isDirectory(inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4))) {
+      	print('Exists          : ' + inputPath+"\\..\\res\\" + substring(list[i], 0, lengthOf(list[i]) -4));
+  	} else {
+		print('Does not exists : ' + inputPath+"\\..\\res\\" + substring(list[i], 0, lengthOf(list[i]) -4));
+		File.makeDirectory( inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4));
+		File.makeDirectory( inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4)+"\\bad");
+		File.makeDirectory( inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4)+"\\crop");
+		
+		cropFile(inputPath, list[i]);
+		return;
+	}
 }
-
-
 
 function cropFile(path, fileName) {
 	print('open '+path + fileName);
 	open(path + fileName);
 	baseName=File.nameWithoutExtension;
-
-	File.makeDirectory( inputPath+"\\..\\res\\"+baseName);
-	File.makeDirectory( inputPath+"\\..\\res\\"+baseName+"\\bad");
-	File.makeDirectory( inputPath+"\\..\\res\\"+baseName+"\\crop");
 
 	imageId=getImageID();
 
@@ -31,9 +35,6 @@ function cropFile(path, fileName) {
 	print('8-bit');
 	run("8-bit");
 
-	// setAutoThreshold("Default");
-	// call("ij.plugin.frame.ThresholdAdjuster.setMode", "B&W");
-	// setOption("BlackBackground", false);
 	print('Convert to Mask');
 	run("Convert to Mask");
 
@@ -41,10 +42,12 @@ function cropFile(path, fileName) {
 	//run("Fill Holes");
 
 	print('Analyze Particles');
-	run("Analyze Particles...", "size=100000-10000000 exclude clear add");
+	run("Analyze Particles...", "size=80000-10000000 exclude clear add");
 	// run("Analyze Particles...", "size=500-15000 exclude clear add");
 
-	  run("Labels...", "color=white font=140 show draw"); 
+	// run("Line Width...", "line=2");
+	run("Colors...", "foreground=white background=black selection=red");
+	run("Labels...", "color=white font=200 show draw"); 
 	saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\"+baseName+".map.png");
 
 	// File.makeDirectory(dirCropOutput);
