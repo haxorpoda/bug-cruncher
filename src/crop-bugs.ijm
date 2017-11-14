@@ -5,7 +5,9 @@ inputPath = "/media/win/bug-cruncher/highRes/";
 setBatchMode(true);
 list = getFileList(inputPath);
 for (i = 0; i < list.length; i++) {
-	cropFile(inputPath, list[i]);
+	// cropFile(inputPath, list[i]);
+
+	print(substring(list[i], 0, lengthOf(list[i])-4))
 }
 
 
