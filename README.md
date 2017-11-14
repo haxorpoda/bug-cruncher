@@ -6,9 +6,9 @@ We combine art and sience to create beauty and knowlege.
 
 ## Approach
 
-Our approach was fully powered by open source tools that helped us download, share, and process high resolution scans of insect specimen drawers provied by the [Museum für Naturkunde Berlin](https://www.naturkundemuseum.berlin) for the [Coding da Vinci](https://codingdavinci.de/daten/) Hackaton 1017 under a CC0 license.
+Our approach was fully powered by open source tools that helped us download, share, and process high resolution scans of insect specimen drawers provied by the [Museum für Naturkunde Berlin](https://www.naturkundemuseum.berlin) for the [Coding da Vinci](https://codingdavinci.de/daten/) Hackaton 2017 under a [CC0 license](https://wiki.creativecommons.org/wiki/CC0).
 
-After experiment with linux command line tools we adoped [ImageJ](https://imagej.net) as our main tool for feature detection (finding the outlines of bugs and butterflies) and cropping of individual insect specimen from the high resolution scans utilizing a similar protocol used for [counting cells](https://www.youtube.com/watch?v=D1qBaFwuF4E) on microscopy images.
+After experiment with [linux command line tools](https://stackoverflow.com/questions/23888287/split-image-into-parts) we adoped [ImageJ](https://imagej.net) as our main tool for feature detection (finding the outlines of bugs and butterflies) and cropping of individual insect specimen from the high resolution scans utilizing a similar protocol used for [counting cells](https://www.youtube.com/watch?v=D1qBaFwuF4E) on microscopy images.
 
 ## Galleries
 
