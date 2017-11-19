@@ -1,6 +1,12 @@
-inputPath = "E:\\git\\bug-cruncher\\data\\highRes\\" //--headless --console -macro E:\git\bug-cruncher\src\crop-bugs.ijm;
+// inputPath = "Z:\\bug-cruncher\\highRes"
 // inputPath = "/home/select/Dev/bugs/data/highRes/";
 // inputPath = "/home/select/Dev/bugs/data/test/";
+
+inputPath = "E:\\git\\bug-cruncher\\data\\highRes\\";
+
+open(gbif.naturkundemuseum-berlin.de/hackathon/Insektenkasten/High_resolution/MFNB_Col_Brentidae_Brentinae_D0001.jpg);
+
+return;
 
 //setBatchMode(true);
 print(inputPath);

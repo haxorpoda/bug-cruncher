@@ -1,5 +1,10 @@
 @echo off
 
+echo Start %time%
+
+:: set inputPath=Z:\bug-cruncher\highRes\
+:: set outputPath=Z:\bug-cruncher\res\
+
 set inputPath=E:\git\bug-cruncher\data\highRes\
 set outputPath=E:\git\bug-cruncher\data\res\
 
@@ -21,4 +26,4 @@ echo Filecount %Filecount%
     )
 :done
 
-echo Done
+echo Done %time%
