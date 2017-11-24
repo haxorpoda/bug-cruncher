@@ -41,7 +41,7 @@ function cropFile(filePath, baseName) {
 	// run("Analyze Particles...", "size=500-15000 exclude clear add");
 
 	// run("Line Width...", "line=2");
-	run('Colors...', 'foreground=white background=black selection=red');
+	// run('Colors...', 'foreground=white background=black selection=red');
 	run('Labels...', 'color=white font=200 show draw');
 	saveAs('png', resPath + baseName + '/' + baseName + '.map.png');
 
