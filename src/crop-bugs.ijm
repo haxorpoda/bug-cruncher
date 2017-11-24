@@ -1,82 +1,68 @@
-// inputPath = "Z:\\bug-cruncher\\highRes"
-// inputPath = "/home/select/Dev/bugs/data/highRes/";
-// inputPath = "/home/select/Dev/bugs/data/test/";
+inputPath = '/home/select/bug-cruncher-data/highRes/';
+resPath = '/home/select/bug-cruncher-data/res/';
 
-inputPath = "E:\\git\\bug-cruncher\\data\\highRes\\";
-
-open(gbif.naturkundemuseum-berlin.de/hackathon/Insektenkasten/High_resolution/MFNB_Col_Brentidae_Brentinae_D0001.jpg);
-
-return;
-
-//setBatchMode(true);
 print(inputPath);
 list = getFileList(inputPath);
 for (i = 0; i < list.length; i++) {
-	if (File.isDirectory(inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4))) {
-      	print('Exists          : ' + inputPath+"\\..\\res\\" + substring(list[i], 0, lengthOf(list[i]) -4));
-  	} else {
-		print('Does not exists : ' + inputPath+"\\..\\res\\" + substring(list[i], 0, lengthOf(list[i]) -4));
-		File.makeDirectory( inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4));
-		File.makeDirectory( inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4)+"\\bad");
-		File.makeDirectory( inputPath+"\\..\\res\\"+substring(list[i], 0, lengthOf(list[i]) -4)+"\\crop");
-		
-		cropFile(inputPath, list[i]);
-		return;
+	baseName = substring(list[i], 0, lengthOf(list[i]) - 4);
+	if (File.isDirectory(resPath + baseName)) {
+		print('Exists: ' + resPath + baseName);
+	} else {
+		print('Does not exists : ' + resPath + baseName);
+		cropFile(inputPath + list[i], baseName);
+		exit("Done with one!");
 	}
 }
 
-function cropFile(path, fileName) {
-	print('open '+path + fileName);
-	open(path + fileName);
-	baseName=File.nameWithoutExtension;
+function cropFile(filePath, baseName) {
+	File.makeDirectory(resPath + baseName);
+	File.makeDirectory(resPath + baseName + '/bad');
+	File.makeDirectory(resPath + baseName + '/crop');
 
-	imageId=getImageID();
+	print('open ' + filePath);
+	open(filePath);
 
-	run("Duplicate...", "title=particles");
-	imageIdParticles=getImageID();
+	imageId = getImageID();
+
+	run('Duplicate...', 'title=particles');
+	imageIdParticles = getImageID();
 
 	print('Subtract Background');
-	run("Subtract Background...", "rolling=500 light");
+	run('Subtract Background...', 'rolling=500 light');
 
 	print('8-bit');
-	run("8-bit");
+	run('8-bit');
 
 	print('Convert to Mask');
-	run("Convert to Mask");
-
-	//print('Fill Holes');
-	//run("Fill Holes");
+	run('Convert to Mask');
 
 	print('Analyze Particles');
-	run("Analyze Particles...", "size=80000-10000000 exclude clear add");
+	run('Analyze Particles...', 'size=80000-10000000 exclude clear add');
 	// run("Analyze Particles...", "size=500-15000 exclude clear add");
 
 	// run("Line Width...", "line=2");
-	run("Colors...", "foreground=white background=black selection=red");
-	run("Labels...", "color=white font=200 show draw"); 
-	saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\"+baseName+".map.png");
+	run('Colors...', 'foreground=white background=black selection=red');
+	run('Labels...', 'color=white font=200 show draw');
+	saveAs('png', resPath + baseName + '/' + baseName + '.map.png');
 
-	// File.makeDirectory(dirCropOutput);
-	// selectWindow(fileName);
-	print('save '+roiManager("count")+' files');
+	print('save ' + roiManager('count') + ' files');
 	selectImage(imageId);
-	for (u=0; u<roiManager("count"); ++u) {
-		run("Duplicate...", "title=crop");
-		roiManager("Select", u);
-		run("Crop");
+	for (u = 0; u < roiManager('count'); ++u) {
+		run('Duplicate...', 'title=crop');
+		roiManager('Select', u);
+		run('Crop');
 		getSelectionBounds(x, y, widthSel, heightSel);
-		ratio=widthSel/heightSel;
+		ratio = widthSel / heightSel;
 		if (ratio > 0.14 && ratio < 6.5) {
-			saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\crop\\"+fileName+'.'+u+".png");
+			saveAs(
+				'png',
+				resPath + baseName + '/crop/' + baseName + '.' + u + '.png'
+			);
 		} else {
-			saveAs("png", inputPath+"\\..\\res\\"+baseName+"\\bad\\"+fileName+'.'+u+".png");
+			saveAs('png', resPath + baseName + '/bad/' + baseName + '.' + u + '.png');
 		}
-		// close();
-		//Next round!
-		// selectWindow(fileName);
 		selectImage(imageId);
 	}
 	selectImage(imageIdParticles);
-	// selectWindow("particles");
 	close();
 }
