@@ -6,9 +6,9 @@ list = getFileList(inputPath);
 for (i = 0; i < list.length; i++) {
 	baseName = substring(list[i], 0, lengthOf(list[i]) - 4);
 	if (File.isDirectory(resPath + baseName)) {
-		print('Exists: ' + resPath + baseName);
+		// print('Exists: ' + resPath + baseName);
 	} else {
-		print('Does not exists : ' + resPath + baseName);
+		print('Creating ' + resPath + baseName);
 		cropFile(inputPath + list[i], baseName);
 		exit("Done with one!");
 	}
