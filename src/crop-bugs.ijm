@@ -1,8 +1,25 @@
 inputPath = '/home/select/bug-cruncher-data/highRes/';
 resPath = '/home/select/bug-cruncher-data/res/';
 
+// http://imagej.1557.x6.nabble.com/Randomize-order-of-an-array-td3693530.html
+// returns a random number, 0 <= k < n
+function randomInt(n) {
+  return n * random();
+}
+function shuffle(array) {
+  n = array.length;       // The number of items left to shuffle (loop invariant).
+  while (n > 1) {
+    k = randomInt(n);     // 0 <= k < n.
+    n--;                  // n is now the last pertinent index;
+    temp = array[n];      // swap array[n] with array[k] (does nothing if k == n).
+    array[n] = array[k];
+    array[k] = temp;
+  }
+}
+
 print(inputPath);
 list = getFileList(inputPath);
+shuffle(list);
 for (i = 0; i < list.length; i++) {
 	baseName = substring(list[i], 0, lengthOf(list[i]) - 4);
 	if (File.isDirectory(resPath + baseName)) {
