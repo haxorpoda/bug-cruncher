@@ -9,7 +9,7 @@ html, body {
 }
 #gallery {
   overflow: hidden;
-  --num-columns: 28;
+  --num-columns: 100;
   --col-gap: 0px;
   /* Prevent vertical gaps */
   line-height: 0;
@@ -37,7 +37,8 @@ html, body {
     <!-- <img src="images/cat-2.jpg" alt="Serious cat"> -->
   </section>
   <script type="module">
-    import { fileColors } from '../data/colors.BeispielKaefer.js'
+    // import { fileColors } from '../data/colors.BeispielKaefer.js'
+    import { fileColors } from '../data/colors.Insekten_Mittel.js'
 
 
 
@@ -47,7 +48,7 @@ html, body {
     });
     const html = /*shuffle(images)*/fileColors.map(({file, colors}) => `
     <div>
-      <img src="../data/BeispielKaefer/${file}">
+      <img src="../data/Insekten_Mittel/${file}">
       </div>
     </div>
     `)
