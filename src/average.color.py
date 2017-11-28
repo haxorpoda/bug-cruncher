@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 from PIL import Image
+import colorsys
+import json
 
 def average_image_color(filename):
   i = Image.open(filename)
@@ -12,11 +14,16 @@ def average_image_color(filename):
 
   # perform the weighted average of each channel:
   # the *index* is the channel value, and the *value* is its weight
-  return (
+
+  colorTuple = (
     sum( i*w for i, w in enumerate(r) ) / sum(r),
     sum( i*w for i, w in enumerate(g) ) / sum(g),
     sum( i*w for i, w in enumerate(b) ) / sum(b)
   )
+  return json.dumps({
+    'hls': list(colorsys.rgb_to_hls(*[x/256.0 for x in colorTuple])),
+    'hex': '#%02x%02x%02x' % colorTuple,
+  })
 
 if __name__ == '__main__':
     import sys
