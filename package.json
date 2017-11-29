@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chrome-remote-interface": "^0.25.4",
     "crawler": "^1.1.1",
-    "http-server": "^0.10.0"
+    "http-server": "^0.10.0",
+    "minimist": "^1.2.0"
   }
 }
