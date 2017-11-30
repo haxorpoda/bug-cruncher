@@ -33,7 +33,7 @@ We then used the Nexcloud [command line tool](https://docs.nextcloud.com/server/
 sudo -u www-data php occ files:scan myUserName --path myUserName/files/bug-cruncher
 ```
 
-We were now able to mount the Nexcloud directoy in Linux and Windows machines using [WebDAV](https://en.wikipedia.org/wiki/WebDAV). This enabled us to use a fast computer to calculate the data while directly sharing the results.
+We were now able to mount the Nexcloud directoy in Linux ~~and Windows~~ machines using [WebDAV](https://en.wikipedia.org/wiki/WebDAV). This enabled us to use a fast computer to calculate the data while directly sharing the results.
 
 ## HTML Galleries
 
