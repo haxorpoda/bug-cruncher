@@ -5,8 +5,9 @@ const fs = require('fs');
 
 const targetURL = argv.url || 'https://jonathanmh.com';
 // const viewport = [3200*1.85,1800*1.85];
-const viewport = [1800*1.85,3200*1.85];
-const screenshotDelay = 1.5*60*1000; // ms
+
+const viewport = [parseInt(argv.w) || 1800*1.85, parseInt(argv.h) || 3200*1.85];
+const screenshotDelay = parseInt(argv.delay)*1000 || 1.5*60*1000; // ms
 const fullPage = argv.fullPage || false;
 
 if(fullPage){
