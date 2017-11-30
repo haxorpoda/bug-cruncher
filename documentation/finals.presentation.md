@@ -11,22 +11,11 @@ controls: true
 
 # Haxorpoda Collective
 
+
 ## Wir sind die die Käfter sotieren
 
---
-<div>&nbsp;</div>
-<div style="font-size: 1.5em">
-	1. Einzelne Insekten freistellen <br><br>
-	2. nach Farbe Sortieren<br><br>
-	3. schön darstellen<br><br>
-</div>
-
---
-# Protokoll für Wurst
-
---
 <style>
-.fullscreen{
+.fullscreen {
 	position: fixed;
     top: 5%;
     left: 5%;
@@ -37,18 +26,55 @@ controls: true
     background-repeat: no-repeat;
     background-position: center;
 }
+.fullscreen-full {
+	position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 </style>
+
+
+--
+<div>&nbsp;</div>
+<div style="font-size: 1.5em">
+	1. Einzelne Insekten freistellen,<br><br>
+	2. nach Farbe sortieren,<br><br>
+	3. schön darstellen.<br><br>
+</div>
+
+--
+# Protokoll für …
+
+--
 <div style="background-image: url('img/wustplatte.jpg'); " class="fullscreen" ></div>
+
 --
 <div style="background-image: url('img/wurstplatte.featrure-detection.1.png'); " class="fullscreen" ></div>
 --
-
---
 <div style="background-image: url('img/wurstplatte.featrure-detection.2.png'); " class="fullscreen" ></div>
+--
 # Zu ungenau
+<div style="text-align: center;">
+	
+<img 
+	src="img/frown.emoji.png" 
+	style="display: inline; height: 112px; width: inherit;">
+</div>
 
 --
-### Protokoll für winzige Zellen
+# … grübel, google, Haxor Session …
+
+--
+# Software für winzige Zellen
+
+--
+### ImageJ für winzige Zellen
 <div>&nbsp;</div>
 <div class="left">
 	<img src="img/ImageJ nuclei number.1.jpg" alt="">
@@ -57,118 +83,188 @@ controls: true
 	<img src="img/ImageJ nuclei number.2.jpg" alt="">
 </div>
 
+
 --
-# 286M px²
-<div style="text-align: center; font-size: .7em">
-	
-18338px * 15639px = 286 787 982 px²
+### ImageJ - mächtig (kompliziert gemacht)
+<div>&nbsp;</div>
+<div class="left">
+<img src="img/ImageJ-screenshot.png" style="width: 135%">
 </div>
+<div class="right">
+<img src="img/imagej.logo.png" alt="">
+</div>
+
+--
+<div style="text-align: center;">
+	
+<img 
+	src="img/frown.emoji.png" 
+	style="display: inline; height: 112px; width: inherit; margin-bottom: -150px">
+</div>
+# help!
+
+--
+# Der grösste Wissensspeicher der Menschheit?
+
+--
+<div style="background-image: url('img/imagej.youtube.tutorial.png'); " class="fullscreen" ></div>
+
+--
+``` js
+
+function cropFile(filePath, baseName) {
+	open(filePath);
+	imageId = getImageID();
+	run('Duplicate...', 'title=particles');
+	imageIdParticles = getImageID();
+	run('Subtract Background...', 'rolling=500 light');
+	run('8-bit');
+	run('Convert to Mask');
+	run('Analyze Particles...', 'size=80000-10000000 exclude clear add');
+	run('Labels...', 'color=white font=200 show draw');
+	saveAs('png', resPath + baseName + '/' + baseName + '.map.png');
+	selectImage(imageId);
+	for (u = 0; u < roiManager('count'); ++u) {
+		run('Duplicate...', 'title=crop');
+		roiManager('Select', u);
+		run('Crop');
+		getSelectionBounds(x, y, widthSel, heightSel);
+		ratio = widthSel / heightSel;
+		if (ratio > 0.14 && ratio < 6.5) {
+			saveAs(
+				'png',
+				resPath + baseName + '/crop/' + baseName + '.' + u + '.png'
+			);
+		} else {
+			saveAs('png', resPath + baseName + '/bad/' + baseName + '.' + u + '.png');
+		}
+		selectImage(imageId);
+	}
+	selectImage(imageIdParticles);
+	close();
+}
+
+```
+
+
+--
+<div style="background-image: url('img/mfnb_col_buprestidae_julodinae_d019.jpg'); " class="fullscreen" ></div>
+--
+<div style="background-image: url('img/mfnb_col_scarabaeidae_dynastinae_d187.jpg'); " class="fullscreen" ></div>
+--
+<div style="background-image: url('img/tristan.naturkundemuseeum.berlin.jpg'); " class="fullscreen-full" ></div>
+
+--
+<div style="text-align: center; font-size: .7em; margin-bottom: -150px;">	
+	jedes Bild hat
+</div>
+
+# 286M px²
+
+<div style="text-align: center; font-size: .7em">	
+	18338px * 15639px = 286 787 982 px²
+</div>
+
+--
+# 302.2 GB
+<div style="text-align: center; font-size: .7em">	
+	1650 Files
+</div>
+
+--
+# … und wieviel hast du so frei auf deinem Computer?
+
+--
+<img src="img/nextcloud.screenshot.png" alt="">
+--
+<img src="img/Nextcloud_Logo.svg.png" alt="">
+
+--
+# … Probleme … … … …
+<img src="img/imagej.logo.png" class="fullscreen">
 
 --
 # 13GB peak RAM
 <img src="img/ram.chip.jpg" alt="">
+
 --
+<div style="background-image: url('img/big-server.jpg'); " class="fullscreen-full" ></div>
+
+--
+# … einige Zeit später
+<div style="text-align: center; font-size: .7em">	
+	detachable X11 sessions
+	<br> 
+	`tmux` + `xpra` = ♥ 
+</div>
+--
+<div style="background-image: url('img/MFNB_Col_Buprestidae_Julodinae_D008.map.png'); " class="fullscreen" ></div>
+--
+<div style="background-image: url('img/MFNB_Col_Scarabaeidae_Cetoniinae_D189.map.png'); " class="fullscreen" ></div>
+--
+<div style="background-image: url('img/MFNB_Lep_Schultze_SK_D0031.map.png'); " class="fullscreen" ></div>
+
+--
+# so viel tolle Hexapoda …
+
+--
+# so viel tolle Hxorpoda …
+
+--
+# … aber was issn jetzt mit den Farben Oli?
+
+
+
+--
+<div style="background-image: url('img/o.wagner.smarty-sort-machine.2.png'); " class="fullscreen" ></div>
+--
+# Smartie-Farben-Sortier-Maschine
+<div style="text-align: center; font-size: .7em">	
+	Sortiert Smarties nach Farben.
+</div>
 
 --
 <div style="background-image: url('img/o.wagner.smarty-sort-machine.1.png'); " class="fullscreen" ></div>
+
 --
-<div style="background-image: url('img/o.wagner.smarty-sort-machine.2.png'); " class="fullscreen" ></div>
+# scant Farben in RGB
+
 --
 <div style="background-image: url('img/rgb.color.space.jpg'); " class="fullscreen" ></div>
 
 --
-<div style="background-image: url('img/hsl.color.space.png'); " class="fullscreen" ></div>
-
-
-
-
-
-
---
-### Daten: Berliner Volks-Zeitung digital
-Mit Anspruch, Sensationen und Unterhaltung für die Massen - die **Berliner Volkszeitung** war vor 100 Jahren die erfolgreichste Boulevardzeitung für die Metropole Berlin.
-
-<img src="img/1917-11-01.0.png" alt="Volkszeitung Titelseite">
-
---
-### Daten: Berliner Volks-Zeitung digital
-<style>
-	.smalldec {
-		font-size: 0.7em;
-		color: #7a7a7a;
-		margin-top: 0;
-	}
-</style>
-
-<span class="smalldec">Datenquelle</span><br>
-**digitalisierter historischer Zeitungsbestand der Staatsbibliothek zu Berlin – Preußischer Kulturbesitz**<br>
-<span class="smalldec">Datenformate</span><br>
-**ALTO-XML**, **METS-XML**, **JPEG**, **TIFF**<br>
-<span class="smalldec">Lizenz</span><br>
-**CCO**
-
-<img src="img/zefys.homepage.png" alt="Zefys Homepage">
-
---
-### Coding: Twitter Bot
-Wir tweeten seit Beginn des Hackathons konstant im Erscheinungsrhythmus der Zeitung **morgens und abends** die neuen Schlagzeilen.
-
-Erst händisch …
-
-<img src="img/code.example.png" alt="Twitter bot Code Beispiel">
-
---
-### Fake it till you ~~make~~ automate it
- … und dann haben wir das Tweeten immer weiter **automatisiert** …
-
-<div>&nbsp;</div>
-<img src="img/our-scripts.png" alt="Screenshots of scripts collection">
-<div>&nbsp;</div>
-
-… doch wir sind noch nicht fertig.
-
---
-<div>&nbsp;</div>
-<img src="img/nila-cuts-berliner-volkszeitung.jpg" alt="Nila schneidet die Volkszeitung">
-<div>&nbsp;</div>
-
-
---
-### Besucherstatistiken Oct '17
-<img src="img/summary.oct17.png" alt="">
-
---
-### Top Tweet Nov '17
-<img src="img/top-tweet.oct17.png" alt="">
-
---
-### Besucherstatistiken Nov '17
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div style="background: white; width: 100%; height: 254px;">
-	<div class="left">
-		<img src="img/impressions.png" alt="">
-	</div>
-	<div class="right">
-		<img src="img/mentions.png" alt="">
-	</div>
+# HLS ist besser
+<div style="text-align: center; font-size: .7em">	
+	RGB -> HLS
 </div>
 
 --
-### Followers Nov '17
-Wir hatten eigentlich gehofft **100 Follower** bis heute zubekomen.
+<div style="background-image: url('img/hsl.color.space.png'); " class="fullscreen" ></div>
 
-Aber es ist noch nicht zu spät!
+--
+# … letzer Schritt, schöne Bilder!
 
-<img src="img/follower.number.png" alt="66 Follower im Moment">
-<img src="img/followers.png" alt="Follower Graph">
+
+--
+# … liebe Jury, hier wollen wir noch nichts spoilern
+
+--
+# … ganz sicher wollt ihr euch auch lieber überraschen lassen
+
+--
+# … das wird super
+
+
+--
+# ;-)
 
 --
 ### Links und Code
-Ihr wollt uns helfen? Ihr wollt auch mit bots tweeten?
+Ihr wollt uns helfen? Ihr wollt auch Bugs crunchen?
 
-# @volkszeitung100
-
-<div style="text-align: center;">
-https://twitter.com/Volkszeitung100
+<div style="font-weight: 700; text-align: center; font-size: 2em;">
+github.com/haxorpoda <br>
+@haxorpoda <br>
+<img src="img/haxarpoda.logo.png" width="50px" style="width: 209px;height: inherit;">
 </div>
+
