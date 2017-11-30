@@ -211,6 +211,9 @@ function cropFile(filePath, baseName) {
 # so viel tolle Hxorpoda …
 
 --
+# so viel tolle Haxorpoda …
+
+--
 # … aber was issn jetzt mit den Farben Oli?
 
 
@@ -246,10 +249,10 @@ function cropFile(filePath, baseName) {
 
 
 --
-# … liebe Jury, hier wollen wir noch nichts spoilern
+# … liebe Jury, hier wollen wir noch nichts spoilern …
 
 --
-# … ganz sicher wollt ihr euch auch lieber überraschen lassen
+# … ganz sicher wollt ihr euch auch lieber überraschen lassen …
 
 --
 # … das wird super
