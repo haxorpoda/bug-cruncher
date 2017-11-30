@@ -39,6 +39,10 @@ controls: true
 }
 </style>
 
+--
+<div style="background-image: url('img/MichaelFolien/_Anfangsfolie_small.jpg'); " class="fullscreen" ></div>
+--
+<div style="background-image: url('img/MichaelFolien/_Comunity_small.jpg'); " class="fullscreen-full" ></div>
 
 --
 <div>&nbsp;</div>
@@ -172,7 +176,7 @@ function cropFile(filePath, baseName) {
 </div>
 
 --
-# … und wieviel hast du so frei auf deinem Computer?
+# … und wieviel hast du so auf deinem Computer frei?
 
 --
 <img src="img/nextcloud.screenshot.png" alt="">

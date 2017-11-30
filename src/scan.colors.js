@@ -6,7 +6,9 @@ const config = require('./config');
 
 // const dataSetName = 'BeispielKaefer';
 // const dataSetName = 'Insekten_Mittel';
-const dataSetName = 'Insekten_Gross';
+// const dataSetName = 'Insekten_Gross';
+const dataSetName = 'Schmetterlinge';
+// const dataSetName = 'BunteKaefer';
 const baseDir = `../data/${dataSetName}`;
 
 const fileColor = fs.readdirSync(baseDir).map(file => {

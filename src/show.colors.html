@@ -10,7 +10,8 @@ html, body {
 #gallery {
   overflow: hidden;
   /*--num-columns: 85;*/
-  --num-columns: 48;
+  /*--num-columns: 48;*/
+  --num-columns: 29;
   --col-gap: 0px;
   /* Prevent vertical gaps */
   line-height: 0;
@@ -40,7 +41,9 @@ html, body {
   <script type="module">
     // import { fileColors } from '../data/colors.BeispielKaefer.js'
     // import { fileColors } from '../data/colors.Insekten_Gross.js'
-    import { fileColors } from '../data/colors.Insekten_Mittel.js'
+    // import { fileColors } from '../data/colors.Insekten_Mittel.js'
+    import { fileColors } from '../data/colors.BunteKaefer.js'
+    // import { fileColors } from '../data/colors.Schmetterlinge.js'
 
     fileColors.sort(function(a, b) {
       return parseFloat(a.colors.hls[0]) - parseFloat(b.colors.hls[0]);
@@ -51,10 +54,12 @@ html, body {
         el.onload = () => { resolve(el); };
         el.onerror = (error) => { reject(error); };
         // el.src = `../data/Insekten_Gross/${file}`;
-        el.src = `../data/Insekten_Mittel/${file}`;
+        // el.src = `../data/Insekten_Gross/${file}`;
+        el.src = `../data/BunteKaefer/${file}`;
+        // el.src = `../data/Schmetterlinge/${file}`;
       })
     })
-    console.log('got all promises')
+    console.log(`got all promises: ${$imagePromises.length}`)
     Promise.all($imagePromises).then(els => {
       console.log('got all images!')
       const galleryEl = document.querySelector('#gallery');
