@@ -40,9 +40,11 @@ controls: true
 </style>
 
 --
-<div style="background-image: url('img/MichaelFolien/_Anfangsfolie_small.jpg'); " class="fullscreen" ></div>
+<div style="background-image: url('img/MichaelFolien_Final/01_Anfangsfolie_small.jpg'); " class="fullscreen" ></div>
 --
-<div style="background-image: url('img/MichaelFolien/_Comunity_small.jpg'); " class="fullscreen-full" ></div>
+<div style="background-image: url('img/MichaelFolien_Final/02_Comunity_small.jpg'); " class="fullscreen-full" ></div>
+--
+<div style="background-image: url('img/MichaelFolien_Final/03_Sortierung_small.jpg'); " class="fullscreen-full" ></div>
 
 --
 <div>&nbsp;</div>
@@ -234,7 +236,7 @@ function cropFile(filePath, baseName) {
 <div style="background-image: url('img/o.wagner.smarty-sort-machine.1.png'); " class="fullscreen" ></div>
 
 --
-# scant Farben in RGB
+# scant Farben in <span style="color: red;">R</span><span style="color: #00ff0a">G</span><span style="color: blue">B</span>
 
 --
 <div style="background-image: url('img/rgb.color.space.jpg'); " class="fullscreen" ></div>
@@ -242,7 +244,7 @@ function cropFile(filePath, baseName) {
 --
 # HLS ist besser
 <div style="text-align: center; font-size: .7em">	
-	RGB -> HLS
+	convert(**RGB** to **HLS**)
 </div>
 
 --
@@ -253,17 +255,17 @@ function cropFile(filePath, baseName) {
 
 
 --
-# … liebe Jury, hier wollen wir noch nichts spoilern …
-
+<div style="background-image: url('img/bugs.sorted.by.color.png'); " class="fullscreen-full" ></div>
 --
-# … ganz sicher wollt ihr euch auch lieber überraschen lassen …
-
+<div style="background-image: url('img/Schmetterline.19cols.png'); " class="fullscreen-full" ></div>
 --
-# … das wird super
-
-
+<div style="background-image: url('img/699-insects.29-cols.png'); " class="fullscreen-full" ></div>
 --
-# ;-)
+<div style="background-image: url('img/BunteKaefer.31cols.png'); " class="fullscreen-full" ></div>
+--
+<div style="background-image: url('img/2140-insects.85-cols.png'); " class="fullscreen-full" ></div>
+--
+<div style="background-image: url('img/MichaelFolien_Final/99_EndFolie_small.jpg'); " class="fullscreen-full" ></div>
 
 --
 ### Links und Code
