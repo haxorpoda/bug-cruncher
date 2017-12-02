@@ -276,6 +276,12 @@ function cropFile(filePath, baseName) {
 ### Links und Code
 Ihr wollt uns helfen? Ihr wollt auch Bugs crunchen?
 
+<div style="font-size: .5em; text-align: center; ">
+    fk@shoutrlabs.com <br>
+    michael-scheuerl@filmtank.de <br>
+    ow@shoutrlabs.com
+</div>
+
 <div style="font-weight: 700; text-align: center; font-size: 2em;">
 github.com/haxorpoda <br>
 @haxorpoda <br>
