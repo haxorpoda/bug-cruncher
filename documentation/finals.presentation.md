@@ -42,6 +42,8 @@ controls: true
 --
 <div style="background-image: url('img/MichaelFolien_Final/01_Anfangsfolie_small.jpg'); " class="fullscreen" ></div>
 --
+<div style="background-image: url('img/01b_Daten_small.jpg'); " class="fullscreen" ></div>
+--
 <div style="background-image: url('img/MichaelFolien_Final/02_Comunity_small.jpg'); " class="fullscreen-full" ></div>
 --
 <div style="background-image: url('img/MichaelFolien_Final/03_Sortierung_small.jpg'); " class="fullscreen-full" ></div>
@@ -93,8 +95,7 @@ controls: true
 --
 ### ImageJ - mächtig (kompliziert gemacht)
 <div>&nbsp;</div>
-<div class="left">
-<img src="img/ImageJ-screenshot.png" style="width: 135%">
+<div class="left"><div>&nbsp;</div><div>&nbsp;</div><img src="img/ImageJ-screenshot.png" style="width: 135%">
 </div>
 <div class="right">
 <img src="img/imagej.logo.png" alt="">
@@ -103,8 +104,8 @@ controls: true
 --
 <div style="text-align: center;">
 	
-<img 
-	src="img/frown.emoji.png" 
+<img
+	src="img/frown.emoji.png"
 	style="display: inline; height: 112px; width: inherit; margin-bottom: -150px">
 </div>
 # help!
@@ -153,6 +154,7 @@ function cropFile(filePath, baseName) {
 ```
 
 
+
 --
 <div style="background-image: url('img/mfnb_col_buprestidae_julodinae_d019.jpg'); " class="fullscreen" ></div>
 --
@@ -161,19 +163,14 @@ function cropFile(filePath, baseName) {
 <div style="background-image: url('img/tristan.naturkundemuseeum.berlin.jpg'); " class="fullscreen-full" ></div>
 
 --
-<div style="text-align: center; font-size: .7em; margin-bottom: -150px;">	
-	jedes Bild hat
-</div>
-
 # 286M px²
-
-<div style="text-align: center; font-size: .7em">	
-	18338px * 15639px = 286 787 982 px²
+<div style="text-align: center; font-size: .7em">
+	18338px * 15639px 
 </div>
 
 --
 # 302.2 GB
-<div style="text-align: center; font-size: .7em">	
+<div style="text-align: center; font-size: .7em">
 	1650 Files
 </div>
 
@@ -191,17 +188,23 @@ function cropFile(filePath, baseName) {
 
 --
 # 13GB peak RAM
-<img src="img/ram.chip.jpg" alt="">
+<img src="img/ram.chip.jpg" >
+
+<style>
+#slide-28 .slide-content {
+    overflow: visible;
+}
+</style>
 
 --
 <div style="background-image: url('img/big-server.jpg'); " class="fullscreen-full" ></div>
 
 --
 # … einige Zeit später
-<div style="text-align: center; font-size: .7em">	
+<div style="text-align: center; font-size: .7em">
 	detachable X11 sessions
-	<br> 
-	`tmux` + `xpra` = ♥ 
+	<br>
+	`tmux` + `xpra` = ♥
 </div>
 --
 <div style="background-image: url('img/MFNB_Col_Buprestidae_Julodinae_D008.map.png'); " class="fullscreen" ></div>
@@ -228,7 +231,7 @@ function cropFile(filePath, baseName) {
 <div style="background-image: url('img/o.wagner.smarty-sort-machine.2.png'); " class="fullscreen" ></div>
 --
 # Smartie-Farben-Sortier-Maschine
-<div style="text-align: center; font-size: .7em">	
+<div style="text-align: center; font-size: .7em">
 	Sortiert Smarties nach Farben.
 </div>
 
@@ -236,14 +239,14 @@ function cropFile(filePath, baseName) {
 <div style="background-image: url('img/o.wagner.smarty-sort-machine.1.png'); " class="fullscreen" ></div>
 
 --
-# scant Farben in <span style="color: red;">R</span><span style="color: #00ff0a">G</span><span style="color: blue">B</span>
+# scannt Farben in <br> <span style="color: red;">R</span><span style="color: #00ff0a">G</span><span style="color: blue">B</span>
 
 --
 <div style="background-image: url('img/rgb.color.space.jpg'); " class="fullscreen" ></div>
 
 --
 # HLS ist besser
-<div style="text-align: center; font-size: .7em">	
+<div style="text-align: center; font-size: .7em">
 	convert(**RGB** to **HLS**)
 </div>
 
@@ -260,6 +263,8 @@ function cropFile(filePath, baseName) {
 <div style="background-image: url('img/Schmetterline.19cols.png'); " class="fullscreen-full" ></div>
 --
 <div style="background-image: url('img/699-insects.29-cols.png'); " class="fullscreen-full" ></div>
+--
+<div style="background-image: url('img/BunteKaefer.Lsort.png'); " class="fullscreen-full" ></div>
 --
 <div style="background-image: url('img/BunteKaefer.31cols.png'); " class="fullscreen-full" ></div>
 --

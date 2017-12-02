@@ -11,7 +11,8 @@ html, body {
   overflow: hidden;
   /*--num-columns: 85;*/
   /*--num-columns: 48;*/
-  --num-columns: 18;
+  /*--num-columns: 18;*/
+  --num-columns: 30;
   --col-gap: 0px;
   /* Prevent vertical gaps */
   line-height: 0;
@@ -45,15 +46,17 @@ html, body {
     import { fileColors } from '../data/colors.BunteKaefer.js'
     // import { fileColors } from '../data/colors.Schmetterlinge.js'
 
-    fileColors.sort(function(a, b) {
-      return parseFloat(a.colors.hls[0]) - parseFloat(b.colors.hls[0]);
-    });
-    const $imagePromises = fileColors.map(({ file }) => {
+    // Insekten_Mittel.Hgt0.33.Ggt0.16.35cols
+    const c = fileColors;//.filter(({ colors }) => (colors.hls[1]>0.33)&&(colors.hls[2]>0.16))
+    c.sort(function(a, b) {
+        return parseFloat(a.colors.hls[1]) - parseFloat(b.colors.hls[1]);
+      });
+    const $imagePromises = c.map(({ file }) => {
       return new Promise((resolve, reject) => {
         const el = new Image()
         el.onload = () => { resolve(el); };
         el.onerror = (error) => { reject(error); };
-        // el.src = `../data/Insekten_Gross/${file}`;
+        // el.src = `../data/Insekten_Mittel/${file}`;
         // el.src = `../data/Insekten_Gross/${file}`;
         el.src = `../data/BunteKaefer/${file}`;
         // el.src = `../data/Schmetterlinge/${file}`;
