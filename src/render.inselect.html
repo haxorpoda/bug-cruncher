@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style>
+.app {
+  width: 100%;
+  height: 100%;
+  background-image: url('../data/MFNB_Col_Scarabaeidae_Cetoniinae_D045.thumb.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.rect {
+  border: 2px solid red;
+  position: absolute;
+}
+    </style>
+  </head>
+  <body>
+    <div class="app" >
+    </div>
+  </body>
+  <script type="module">
+    import { rectangles } from '../data/MFNB_Col_Scarabaeidae_Cetoniinae_D045.thumb.js'
+    console.log("rectangles", rectangles);
+    const $app = document.querySelector('.app');
+    console.log("$app", $app);
+    rectangles.forEach(rect => {
+      $app.innerHTML += `<div class="rect" style="
+      top: ${rect.x}px;
+      left: ${rect.y}px;
+      width: ${rect.w}px;
+      height: ${rect.h}px;
+      "></div>`
+    })
+  </script>
+</html>

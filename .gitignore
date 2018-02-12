@@ -5,3 +5,7 @@ Insekten_Gross
 BeispielKaefer
 BunteKaefer
 Schmetterlinge
+dist
+thumbs*
+qrcode.examples
+mount.select.sh

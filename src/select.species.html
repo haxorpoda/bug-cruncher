@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <style>
+.app {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.selection-rectangle {
+  border: 2px solid red;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+}
+.menu {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  display: flex;
+}
+.menu>div {
+  background-color: #000;
+  color: #FFF;
+  border: 2px solid white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  margin-right: 1em;
+  cursor: pointer;
+}
+.back {
+ transform: rotate(180deg);
+}
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+      <div class="back" title="[left] previous">➱</div>
+      <div>💾</div>
+      <div class="next"  title="[right] previous">➯</div>
+    </div>
+    <div class="app" >
+    </div>
+  </body>
+  <script type="module">
+
+import { images } from '../data/thumbs.index.js';
+const $app = document.querySelector('.app');
+console.log('$app', $app);
+const getBgUrl = index => `url('../data/thumbs/${images[index].fileName}')`;
+let currentImageIndex = 0;
+$app.style.backgroundImage = getBgUrl(0);
+const next = () => {
+  if (currentImageIndex + 1 < images.length)
+    $app.style.backgroundImage = getBgUrl(++currentImageIndex);
+};
+const prev = () => {
+  if (currentImageIndex > 0) $app.style.backgroundImage = getBgUrl(--currentImageIndex);
+};
+
+
+let start;
+function onMouseMove(event) {
+  Object.assign(selectionRectangles[0].style, {
+    height: `${event.clientY - start.y}px`,
+    width: `${event.clientX - start.x}px`,
+  });
+}
+document.querySelector('.back').addEventListener('click', prev);
+document.querySelector('.next').addEventListener('click', next);
+
+const selectionRectangles = [];
+$app.addEventListener('mousedown', event => {
+  if (!start) {
+    if (!shiftPressed) selectionRectangles.forEach(el => el.remove());
+
+    const $selectRect = document.createElement('div');
+    selectionRectangles.unshift($selectRect);
+    document.body.prepend($selectRect);
+    $selectRect.classList.add('selection-rectangle');
+
+    start = { x: event.clientX, y: event.clientY };
+    Object.assign($selectRect.style, {
+      top: `${event.clientY}px`,
+      left: `${event.clientX}px`,
+    });
+    $app.addEventListener('mousemove', onMouseMove);
+  }
+});
+$app.addEventListener('mouseup', (event) => {
+  start = null;
+  $app.removeEventListener('mousemove', onMouseMove);
+});
+
+
+let shiftPressed = false;
+window.addEventListener('keydown', event => {
+  if (event.key == 'ArrowRight') next();
+  if (event.key == 'ArrowLeft') prev();
+  if (event.shiftKey) shiftPressed = true;
+});
+window.addEventListener('keyup', event => {
+  if (!event.shiftKey) shiftPressed = false;
+});
+  </script>
+</html>

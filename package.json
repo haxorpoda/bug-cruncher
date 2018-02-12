@@ -2,9 +2,13 @@
   "name": "bug-cruncher",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "http-server -p 8888 ./",
+    "start": "node ./config/webpack.dev.js",
+    "build": "./node_modules/.bin/webpack --config='./config/webpack.base.js' --progress --display-error-details",
+    "start2": "nodemon & node ./config/webpack.dev.js",
+    "serve": "./src/server.js",
+    "serve-static": "http-server -p 8888 ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,7 +16,20 @@
   "dependencies": {
     "chrome-remote-interface": "^0.25.4",
     "crawler": "^1.1.1",
+    "get-image-data": "^3.0.1",
+    "hapi": "^17.2.0",
     "http-server": "^0.10.0",
+    "inert": "^5.1.0",
+    "jpeg-js": "^0.3.3",
+    "jsqr": "^1.0.1",
     "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.11.0",
+    "circular-dependency-plugin": "^4.4.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "copy-webpack-plugin": "^4.4.1",
+    "webpack-dev-server": "^2.11.1"
   }
 }
