@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Haxorpoda Species Selector</title>
+		<link rel="shortcut icon" type="image/png" href="img/haxorpoda.logo.png"/>
+		<style>
+		html,body,#app,.splash {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			font-family: Roboto
+		}
+		.splash {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #fff;
+			color: #000;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.splash > img {
+			width: 60%;
+			max-width: 300px;
+			margin-right: 1em;
+		}
+		#au-about {
+			font-size: .6em;
+			color: #2176A8;
+			position: absolute;
+			bottom: 1em;
+		}
+		main {
+			display: none;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="splash">
+			<img class="au-header__logo" src="img/haxorpoda.logo.png" alt="Haxorpoda - we sort bugs!">
+			<i id="version">Haxorpoda Collective - Species Selector 1.0.0</i>
+			<div id="au-about">
+				@haxorpoda - twitter/github | Open Source MIT
+			</div>
+		</div>
+		<main>
+			<div class="menu">
+				<div class="nav__back" title="[left] previous">➱</div>
+				<div class="nav__next"  title="[right] previous">➯</div>
+				<div class="nav__login app--logged-out" title="Log in">🔐</div>
+				<div class="nav__user-list app--logged-in" title="Open user admin">🚹</div>
+				<div class="nav__logout app--logged-in" title="Log out">❌</div>
+			</div>
+			<div class="qrcode"></div>
+			<canvas class="canvas1"></canvas>
+			<canvas class="canvas2"></canvas>
+			<div class="app" ></div>
+			<div class="selections"></div>
+		</main>
+		<div class="user">
+			<div class="user__close">❌</div>
+			<div class="user__list"></div>
+			<form class="card-1 user__add">
+				<input type="text" name="username" placeholder="… add user">
+				<div class="user__menu">
+					<input type="submit" value="❌" title="Add new user">
+				</div>
+			</form>
+		</div>
+		<form class="login">
+			<div>
+				<div>
+					<label>Username</label>
+					<input name="username" type="text" autofocus required>
+				</div>
+				<div>
+					<label>Password</label>
+					<input name="password" type="password" required>
+				</div>
+				<button type="submit">⇢</button>
+			</div>
+		</form>
+		<form class="new-password">
+			<div>
+				<div>
+					<label>New password</label>
+					<input name="password1" type="password" minlength="8" required>
+				</div>
+				<div>
+					<label>Repeat password</label>
+					<input name="password2" type="password" minlength="8" required>
+				</div>
+				<button type="submit">⇢</button>
+			</div>
+		</form>
+		<div class="messages"></div>
+	</body>
+	<script src="app.js" type="module"></script>
+</html>

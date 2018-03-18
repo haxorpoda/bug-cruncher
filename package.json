@@ -1,35 +1,58 @@
 {
-  "name": "bug-cruncher",
+  "name": "haxorpoda-bug-cruncher",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/server.js",
+  "description": "Automatically and manually seperating insect collection images.",
+  "main": "server.js",
   "scripts": {
     "start": "node ./config/webpack.dev.js",
+    "serve": "nodemon",
     "build": "./node_modules/.bin/webpack --config='./config/webpack.base.js' --progress --display-error-details",
-    "start2": "nodemon & node ./config/webpack.dev.js",
-    "serve": "./src/server.js",
-    "serve-static": "http-server -p 8888 ./",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve-static": "http-server -p 8888 ./"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "haxorpoda @select",
+  "homepage": "https://github.com/haxorpoda",
+  "bugs": {
+    "url": "https://github.com/haxorpoda/bug-cruncher/issues"
+  },
+  "license": "MIT",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 180
+  },
   "dependencies": {
-    "chrome-remote-interface": "^0.25.4",
-    "crawler": "^1.1.1",
+    "chrome-remote-interface": "^0.25.5",
+    "crawler": "^1.1.2",
+    "express": "^4.16.3",
     "get-image-data": "^3.0.1",
-    "hapi": "^17.2.0",
-    "http-server": "^0.10.0",
-    "inert": "^5.1.0",
+    "http-server": "^0.11.1",
     "jpeg-js": "^0.3.3",
-    "jsqr": "^1.0.1",
-    "minimist": "^1.2.0"
+    "jsqr": "^1.0.4",
+    "lowdb": "^1.0.0",
+    "minimist": "^1.2.0",
+    "secure-password": "^3.0.0",
+    "socket.io": "^2.0.4",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "webpack": "^3.11.0",
-    "circular-dependency-plugin": "^4.4.0",
+    "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "copy-webpack-plugin": "^4.4.1",
-    "webpack-dev-server": "^2.11.1"
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
+    "circular-dependency-plugin": "^4.4.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.10",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.9.0",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.1",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
+    "webpack-dev-server": "^3.1.1"
   }
 }

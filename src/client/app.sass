@@ -1,0 +1,107 @@
+*
+	box-sizing: border-box
+	&:focus
+		outline: none
+.card-1
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)
+	&:hover
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+
+.app
+	width: 100%
+	height: 100%
+	background-size: contain
+	background-repeat: no-repeat
+
+.old-selection,
+.selection-rectangle
+	position: absolute
+
+.selection-rectangle
+	pointer-events: none
+	border: 2px solid #e74c3c
+
+.old-selection
+	background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 10px, rgba(0, 0, 0, 0.3) 10px, rgba(0, 0, 0, 0.3) 20px)
+	border: 1px solid #1abc9c
+	&:hover
+		background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) 10px, rgba(255, 255, 255, 0.6) 10px, rgba(255, 255, 255, 0.6) 20px)
+		border: 2px solid #1abc9c
+		overflow: hidden
+	&:hover >div
+		display: block
+.selection__delete
+	cursor: pointer
+	display: none
+	position: absolute
+	top: 0.1em
+	right: 0.1em
+	font-size: 1.5em
+	color: #d35400
+.selection__code
+	display: none
+	position: absolute
+	bottom: 0
+	left: 0
+	font-size: 0.5em
+	color: #3498db
+	background: #fff
+	white-space: nowrap
+	text-overflow: ellipsis
+.selection__username
+	display: none
+	position: absolute
+	top: 0
+	left: 0
+	font-size: 0.7em
+	padding: .1em
+	color: #3498db
+	background: #fff
+	white-space: nowrap
+	text-overflow: ellipsis
+
+.menu
+	position: absolute
+	bottom: 50px
+	right: 50px
+	display: flex
+
+.menu>div
+	background-color: #000
+	color: #FFF
+	border: 2px solid white
+	width: 50px
+	height: 50px
+	border-radius: 50%
+	display: flex
+	justify-content: center
+	align-items: center
+	font-size: 2em
+	margin-right: 1em
+	cursor: pointer
+	user-select: none
+
+.nav__back
+ transform: rotate(180deg)
+
+canvas
+	position: absolute
+	transform: scale(0.3)
+	transform-origin: 0 0
+
+.canvas1,
+.canvas2
+	display: none
+
+.qrcode
+	position: absolute
+	top: 0
+	left: 50%
+	transform: translate(-50%, 0)
+	padding: .1em
+	background: rgba(255,255,255,.7)
+	z-index: 99
+	font-size: 0.7em
+	&:empty
+		display: none

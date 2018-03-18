@@ -7,4 +7,3 @@ sudo umount /home/myUser/my-remote-dir/
 # if the mount is hanging and does not unmount
 lsof | grep 'my-remote-dir'
 # this will output the process that blocks the umount
-

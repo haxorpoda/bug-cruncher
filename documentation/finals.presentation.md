@@ -3,7 +3,7 @@ author:
 	name: Falko Krause, Olivier Wagener, Michael Scheuerl
 	github: shoutrlabs
 	url: https://github.com/haxorpoda
-output: ./documentation/finals.presentation.html
+output: ./bug-cruncher/documentation/finals.presentation.html
 theme: ./cleaver-select-theme
 controls: true
 
@@ -39,8 +39,6 @@ controls: true
 }
 </style>
 
---
-<div style="background-image: url('img/MichaelFolien_Final/01_Anfangsfolie_small.jpg'); " class="fullscreen" ></div>
 --
 <div style="background-image: url('img/01b_Daten_small.jpg'); " class="fullscreen" ></div>
 --
@@ -229,10 +227,11 @@ function cropFile(filePath, baseName) {
 
 --
 <div style="background-image: url('img/o.wagner.smarty-sort-machine.2.png'); " class="fullscreen" ></div>
+
 --
-# Smartie-Farben-Sortier-Maschine
+# M&M-Farben-Sortier-Maschine
 <div style="text-align: center; font-size: .7em">
-	Sortiert Smarties nach Farben.
+	Sortiert M&amp;M nach Farben.
 </div>
 
 --
@@ -271,6 +270,40 @@ function cropFile(filePath, baseName) {
 <div style="background-image: url('img/2140-insects.85-cols.png'); " class="fullscreen-full" ></div>
 --
 <div style="background-image: url('img/MichaelFolien_Final/99_EndFolie_small.jpg'); " class="fullscreen-full" ></div>
+
+--
+# Jetzt neu <br> <span style="font-size: .7em">http://haxorpoda.github.io</span>
+
+--
+<div style="background-image: url('img/haxorpoda.github.io.screenshot.png'); " class="fullscreen-full" ></div>
+
+--
+<div style="text-align: center;">
+	
+<img
+	src="img/frown.emoji.png"
+	style="display: inline; height: 112px; width: inherit; margin-bottom: -150px">
+</div>
+
+# der Server ist voll
+<div style="text-align: center; font-size: .7em">
+	wer kann uns noch 1TB cloud storage geben?
+</div>
+
+--
+# … wir haben noch so viele tolle Ideen!
+
+
+--
+- Freistellen mit Machine-Learning
+- Schöne Poster mit Schmetterlingen, …
+- Käferdruckautomat
+- Unser Poster im MfN Shop
+- Käfter Streetart im Appartmen B
+- Sortiern mit dem Mechanical-Turk
+- Spezieszuordnung zu Auschnitten
+- Durchsuchbare Online-Datenbank
+- Webshop mit Insektenprodukten (Tshirts, …)
 
 --
 ### Links und Code
