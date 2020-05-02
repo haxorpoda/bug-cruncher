@@ -2,7 +2,7 @@
 
 We come to crop and sort insects.
 
-We combine art and sience to create beauty and knowlege.
+We combine art and science to create beauty and knowlege.
 
 ## Approach
 
