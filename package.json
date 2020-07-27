@@ -26,7 +26,7 @@
     "express": "^4.16.3",
     "get-image-data": "^3.0.1",
     "http-server": "^0.11.1",
-    "jpeg-js": "^0.3.3",
+    "jpeg-js": "^0.4.1",
     "jsqr": "^1.0.4",
     "lowdb": "^1.0.0",
     "minimist": "^1.2.0",
